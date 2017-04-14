@@ -4,7 +4,7 @@ var addressList = [];
 
 app.get('/', function (request, response) {
 	addressList.push(request.connection.remoteAddress);
-  	response.send(addressList.length);
+  	response.send('nu karo4e ' + addressList.length);
 })
 
 app.listen(process.env.PORT, function () {
