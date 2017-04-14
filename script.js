@@ -1,13 +1,18 @@
-var express = require('express')
-var app = express()
-var addressList = new Set();
+var path = require('path');
+var childProcess = require('child_process');
+var phantomjs = require('phantomjs');
+var binPath = phantomjs.path;
 
-app.get('/', function (request, response) {
-	addressList.add(request.header('x-forwarded-for'));
-	var string = Array.from(addressList).join('\n');
-  	response.send('nu karo4e ' + addressList.size + '\n' + string);
-})
+var childArgs = [
+  path.join(__dirname, 'phantom.js')
+];
 
-app.listen(process.env.PORT, function () {
-  console.log('listening')
-})
+go();
+
+function go(){
+	childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
+		console.log(stdout);
+	});
+	var randomValue = (Math.floor(Math.random() * (220 - 90 + 1)) + 1) * 1000;
+	setTimeout(go, randomValue);
+}
