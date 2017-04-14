@@ -3,7 +3,7 @@ var app = express()
 var addressList = new Set();
 
 app.get('/', function (request, response) {
-	addressList.add(request.connection.remoteAddress);
+	addressList.add(request.header('x-forwarded-for'));
 	var string = Array.from(addressList).join('\n');
   	response.send('nu karo4e ' + addressList.size + '\n' + string);
 })
