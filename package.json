@@ -8,9 +8,7 @@
   },
   "dependencies": {
     "express":"^4.15.2",
-    "path":"^0.12.7",
-    "child_process":"^1.0.2",
-    "phantomjs":"^2.1.7"
+    "request":"^2.81.0"
   },
   "repository": {
     "type": "git",
