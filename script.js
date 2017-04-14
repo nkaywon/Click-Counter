@@ -1,11 +1,12 @@
 var express = require('express')
 var app = express()
+var addressList = [];
 
 app.get('/', function (request, response) {
-	console.log(request.connection.remoteAddress);
-  	response.send('Hello World!');
+	addressList.push(request.connection.remoteAddress);
+  	response.send(addressList.length);
 })
 
-app.listen(3000, function () {
-  console.log('listening on port 3000')
+app.listen(process.env.PORT, function () {
+  console.log('listening')
 })
