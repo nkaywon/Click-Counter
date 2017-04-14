@@ -1,0 +1,16 @@
+{
+  "name": "click-counter",
+  "version": "0.1.6",
+  "description": "A sample",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nkaywon/Click-Counter"
+  }
+}
