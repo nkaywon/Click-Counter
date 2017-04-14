@@ -7,7 +7,10 @@
     "start": "node script.js"
   },
   "dependencies": {
-    "express": "^4.15.2"
+    "express":"^4.15.2",
+    "path":"^0.12.7",
+    "child_process":"^1.0.2",
+    "phantomjs":"^2.1.7"
   },
   "repository": {
     "type": "git",

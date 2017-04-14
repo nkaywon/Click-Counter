@@ -2,17 +2,18 @@ var path = require('path');
 var childProcess = require('child_process');
 var phantomjs = require('phantomjs');
 var binPath = phantomjs.path;
+var fs = require('fs');
+var express = require('express');
+var app = express();
 
 var childArgs = [
   path.join(__dirname, 'phantom.js')
 ];
 
-go();
-
-function go(){
-	childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
-		console.log(stdout);
+app.get('/', function (request, response) {
+  	childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
+		response.sendFile(__dirname + '/screenshot.png');
 	});
-	var randomValue = (Math.floor(Math.random() * (220 - 90 + 1)) + 1) * 1000;
-	setTimeout(go, randomValue);
-}
+})
+
+app.listen(3000, function(){});
